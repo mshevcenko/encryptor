@@ -1,0 +1,4 @@
+# Project exclude paths
+/data-saver-loader/target/
+/encryptor-model/target/
+/encryptor-view/target/
