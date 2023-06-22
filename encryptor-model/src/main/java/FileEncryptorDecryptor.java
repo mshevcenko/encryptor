@@ -76,4 +76,7 @@ public class FileEncryptorDecryptor {
         }
     }
 
+    public byte[] getLoadedFile() {
+        return loadedFile;
+    }
 }
