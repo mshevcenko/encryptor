@@ -14,9 +14,8 @@ on:
 
 jobs:
   build:
-
+    name: Build
     runs-on: windows-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -36,7 +35,7 @@ jobs:
       run: mvn -B clean package --file pom.xml
 
   publish:
-
+    name: Publish
     runs-on: windows-latest
     permissions:
       contents: read
