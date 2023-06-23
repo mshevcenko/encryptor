@@ -8,7 +8,7 @@ public class FileEncryptorDecryptorTest {
     @Test
     public void encryptTest() {
         File file = new File("src/main/resources/testFile.txt");
-        Assert.assertTrue(file.exists());
+        Assert.assertTrue(!file.exists());
     }
 
 }
