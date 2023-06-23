@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Java CI/CD with Maven
 
 on:
   push:
@@ -34,3 +34,8 @@ jobs:
 
     - name: Package
       run: mvn -B clean package --file pom.xml
+
+    - name: Deploy
+      run: mvn -B clean deploy --file pom.xml
+      env:
+        GITHUB_TOKEN: ${{ secrets.REPOSITORY_TOKEN }}
