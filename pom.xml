@@ -28,7 +28,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/mshevcenko/encryptor</url>
+            <url>https://maven.pkg.github.com/Zeltronick/encryptor</url>
         </repository>
     </distributionManagement>
 
