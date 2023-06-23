@@ -41,6 +41,9 @@ jobs:
        
     - name: Package
       run: mvn -B clean package --file pom.xml
+      
+    - name: Prepare Release
+      run: mvn -B release:prepare release:perform
 
     - name: Deploy
       run: mvn -B clean deploy --file pom.xml
