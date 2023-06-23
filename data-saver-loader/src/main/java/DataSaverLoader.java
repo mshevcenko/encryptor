@@ -1,19 +1,18 @@
 import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Arrays;
-
 
 public class DataSaverLoader {
 
     private String extension;
     private byte[] file;
 
-    private DataSaverLoader() {}
+    private DataSaverLoader() {
+    }
 
     public static DataSaverLoader loadEncrypted(File file) throws IOException {
         byte[] bytes = Files.readAllBytes(file.toPath());
@@ -27,7 +26,7 @@ public class DataSaverLoader {
         byte[] extensionBytes = FilenameUtils.getExtension(name).getBytes();
         String baseName = FilenameUtils.getBaseName(name);
         FileOutputStream fos = new FileOutputStream(path + "/" + baseName);
-        fos.write((byte)extensionBytes.length);
+        fos.write((byte) extensionBytes.length);
         fos.write(extensionBytes);
         fos.write(bytes);
         fos.close();

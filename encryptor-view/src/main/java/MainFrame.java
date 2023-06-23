@@ -1,7 +1,18 @@
 import org.apache.commons.io.FileUtils;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JFileChooser;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -40,8 +51,6 @@ public class MainFrame extends JFrame {
         keyPanel.setPreferredSize(new Dimension(0, 32));
         keyPanel.add(this.keyLabel, BorderLayout.LINE_START);
         keyPanel.add(this.keyTextField, BorderLayout.CENTER);
-        //keyPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-
         this.sourceLabel = new JLabel("Source file:");
         this.sourceTextField = new JTextField();
         this.sourceButton = new JButton("...");
@@ -108,10 +117,8 @@ public class MainFrame extends JFrame {
         panel.add(this.encryptButton);
         //panel.add(new Box.Filler(new Dimension(0, 0), new Dimension(0, 0), new Dimension(Short.MAX_VALUE, Short.MAX_VALUE)));
         panel.add(this.decryptButton);
-
         this.add(panel, BorderLayout.CENTER);
         this.add(okPanel, BorderLayout.PAGE_END);
-
         this.setTitle("Encryptor");
         this.setPreferredSize(new Dimension(400, 220));
         this.setLocationRelativeTo(null);
