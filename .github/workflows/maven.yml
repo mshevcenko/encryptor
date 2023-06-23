@@ -14,8 +14,11 @@ on:
 
 jobs:
   build:
-    name: CI
+    name: CI/CD
     runs-on: windows-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
     - uses: actions/checkout@v3
     - uses: actions/cache@v3
@@ -35,28 +38,7 @@ jobs:
 
     - name: Unit tests
       run: mvn -B clean test --file pom.xml
-      
-  publish:
-    name: CD
-    needs: build
-    runs-on: windows-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-    - uses: actions/checkout@v3
-    - uses: actions/cache@v3
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashfiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-        
+       
     - name: Package
       run: mvn -B clean package --file pom.xml
 
